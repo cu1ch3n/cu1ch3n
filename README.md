@@ -1,4 +1,4 @@
-| <a href="https://github.com/anuraghazra/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api?username=cu1ch3n&show_icons=true&include_all_commits=true&theme=transparent&hide_border=true" alt="Chen's github stats" /></a> | <a href="https://github.com/anuraghazra/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=cu1ch3n&layout=compact&theme=transparent&hide_border=true" /></a> |
+| <img align="center" src="https://github-readme-stats.vercel.app/api?username=cu1ch3n&show_icons=true&include_all_commits=true&theme=transparent&hide_border=true" alt="Chen's github stats" /> | <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=cu1ch3n&layout=compact&theme=transparent&hide_border=true" /> |
 | ------------- | ------------- |
 
 ### Some Repositories
