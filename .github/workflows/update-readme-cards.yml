@@ -1,0 +1,141 @@
+name: Update README cards
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/update-readme-cards.yml
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-readme-cards
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=cu1ch3n&show_icons=true&include_all_commits=true&theme=transparent&hide_border=true
+          path: profile/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=cu1ch3n&layout=compact&theme=transparent&hide_border=true
+          path: profile/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate Type Inference Zoo Frontend card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=cu1ch3n&repo=type-inference-zoo-frontend&theme=transparent
+          path: profile/pin-type-inference-zoo-frontend.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate Type Inference Zoo WASM card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=cu1ch3n&repo=type-inference-zoo-wasm&theme=transparent
+          path: profile/pin-type-inference-zoo-wasm.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate Type Inference Zoo card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=cu1ch3n&repo=type-inference-zoo&theme=transparent
+          path: profile/pin-type-inference-zoo.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate Caidan card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=cu1ch3n&repo=caidan&theme=transparent
+          path: profile/pin-caidan.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate Karenda card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=cu1ch3n&repo=karenda&theme=transparent
+          path: profile/pin-karenda.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate Menu card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=cu1ch3n&repo=menu&theme=transparent
+          path: profile/pin-menu.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate Nixbook card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=cu1ch3n&repo=nixbook&theme=transparent
+          path: profile/pin-nixbook.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate NixOS WSL Config card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=cu1ch3n&repo=nixos-wsl-config&theme=transparent
+          path: profile/pin-nixos-wsl-config.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate legacy Nix Config card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=cu1ch3n&repo=nix-config-legacy&theme=transparent
+          path: profile/pin-nix-config-legacy.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate NUR Packages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: pin
+          options: username=cu1ch3n&repo=nur-packages&theme=transparent
+          path: profile/pin-nur-packages.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/*.svg
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: update README cards"
+          git push
