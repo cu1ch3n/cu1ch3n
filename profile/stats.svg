@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Cui Chen&#39;s GitHub Stats, Rank: A-</title>
-        <desc id="descId">Total Stars Earned: 241, Total Commits  : 2596, Total PRs: 43, Total Issues: 10, Contributed to (last year): 8</desc>
+        <desc id="descId">Total Stars Earned: 241, Total Commits  : 2568, Total PRs: 43, Total Issues: 10, Contributed to (last year): 8</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 85.83429217301027;
+        stroke-dashoffset: 86.03127089711613;
       }
     }
   
